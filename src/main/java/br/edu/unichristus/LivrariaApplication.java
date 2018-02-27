@@ -37,7 +37,9 @@ public class LivrariaApplication implements CommandLineRunner {
 		Editora editora2 = new Editora("Elsevier", "São Paulo");
 		this.servicoEditoras.salvarEditora(editora);
 		this.servicoEditoras.salvarEditora(editora2);
-		Thread.sleep(10000);
+		
+	
+	
 
 	}
 }

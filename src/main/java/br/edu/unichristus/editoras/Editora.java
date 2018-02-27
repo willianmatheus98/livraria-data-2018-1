@@ -22,11 +22,17 @@ public class Editora {
 	private String nome;
 
 	private String cidade;
+	
+	private int anoFundacao;
 
 	public Editora(String nome, String cidade) {
 		super();
 		this.nome = nome;
 		this.cidade = cidade;
+	}
+	
+	public Editora() {
+		
 	}
 
 }
