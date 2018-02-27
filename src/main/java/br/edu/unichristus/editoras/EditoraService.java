@@ -12,7 +12,7 @@ public class EditoraService {
 	private EditoraRepository repo;
 
 	public void salvarEditora(Editora e) {
-		System.out.println("SALVANDO EDITORA " + e.getNome());
+		System.out.println("GRAVANDO EDITORA " + e.getNome());
 		this.repo.save(e);
 	}
 	
