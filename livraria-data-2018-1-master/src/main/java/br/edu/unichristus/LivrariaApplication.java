@@ -33,6 +33,7 @@ public class LivrariaApplication implements CommandLineRunner {
 		this.servicoLivros.salvarLivro(livro);
 		this.servicoLivros.salvarLivro(livro2);
 
+		
 		Editora editora = new Editora("Campus", "Rio de Janeiro");
 		Editora editora2 = new Editora("Elsevier", "São Paulo");
 		this.servicoEditoras.salvarEditora(editora);
