@@ -5,12 +5,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.edu.unichristus.livros.Livro;
+
+import javax.persistence.GenerationType;
+
 import lombok.Data;
 
 @Data
@@ -23,26 +25,27 @@ public class Editora {
 	@Column(name = "EDITORA_ID")
 	private Long editoraID;
 
-	@Column(name="NOME")
+	@Column(length = 30, nullable = false, unique = true)
 	private String nome;
 	
-	@Column(name="CIDADE")
+	@Column(length = 30, nullable = false)
 	private String cidade;
-	
-	@Column(name= "ANO_FUNDACAO")
+
+	@Column(name = "ANO_FUNDACAO")
 	private int anoFundacao;
 	
-	@OneToMany(mappedBy="editora")
+	@OneToMany(mappedBy = "editora")
 	private List<Livro> livros;
-	
-	public Editora(String nome, String cidade) {
+
+	public Editora(String nome, String cidade, int anoFundacao) {
 		super();
 		this.nome = nome;
 		this.cidade = cidade;
+		this.anoFundacao = anoFundacao;
 	}
-	
+
 	public Editora() {
-		
+
 	}
 
 }

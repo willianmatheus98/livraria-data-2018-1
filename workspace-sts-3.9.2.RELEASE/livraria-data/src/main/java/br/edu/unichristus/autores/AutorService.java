@@ -12,6 +12,7 @@ public class AutorService {
 	private AutorRepository repo;
 
 	/* MÉTODOS CRUD */
+
 	public void salvar(Autor autor) {
 		this.repo.save(autor);
 		System.out.println("AUTOR " + autor.getAutorID() + " SALVO!");
@@ -41,4 +42,5 @@ public class AutorService {
 		this.repo.delete(autor);
 		System.out.println("REMOVIDO O AUTOR COM ID = " + autor.getAutorID());
 	}
+
 }

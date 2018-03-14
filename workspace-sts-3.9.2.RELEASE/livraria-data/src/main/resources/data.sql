@@ -5,6 +5,7 @@ insert into tb_editora(editora_id, nome, cidade, ano_fundacao) values(4, 'Bookma
 insert into tb_editora(editora_id, nome, cidade, ano_fundacao) values(5, 'Atlas', 'Porto Alegre', 1994);
 insert into tb_editora(editora_id, nome, cidade, ano_fundacao) values(6, 'Pearson', 'São Paulo', 2010);
 
+
 insert into tb_livro(livro_id, data_publicacao, numero_paginas, preco, titulo, editora_id) values (1, '1937-08-12', 250, 40.0, 'A Guerra dos Mundos', 3);
 insert into tb_livro(livro_id, data_publicacao, numero_paginas, preco, titulo, editora_id) values (2, '1948-01-10', 1050, 100.0, 'Admirável Mundo Novo', 2);
 insert into tb_livro(livro_id, data_publicacao, numero_paginas, preco, titulo, editora_id) values (3, '1999-11-01', 50, 49.50, 'Java Como Programar', 4);
@@ -24,3 +25,4 @@ insert into tb_autores_livros(autores_autor_id, livros_livro_id) values (3, 4);
 insert into tb_autores_livros(autores_autor_id, livros_livro_id) values (4, 5);
 insert into tb_autores_livros(autores_autor_id, livros_livro_id) values (5, 3);
 insert into tb_autores_livros(autores_autor_id, livros_livro_id) values (6, 3);
+
