@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Sistema de Livraria</title>
+	<link rel="stylesheet" type="text/css" href="/styles/menu.css">
+	<link rel="stylesheet" type="text/css" href="/styles/rodape.css">
+</head>
+<body>
+	<th:block th:include="fragments/apresentacao :: presentation"></th:block>
+	<th:block th:include="fragments/menu :: menu"></th:block>
+
+	<h3>Atualizar Livro</h3>
+	<form action="#" th:action="@{/livros/save/}+${livro.livroID}"
+		th:object="${livro}" method="post">
+		<p>
+			ID: <input type="number" disabled="disabled" th:field="*{livroID}" />
+		</p>
+		<p>
+			Título: <input type="text" th:field="*{titulo}" />
+		</p>
+		<p>
+			Data de Publicação: <input type="date" pattern="dd/MM/yyyy"
+				th:field="*{dataPublicacao}" />
+		</p>
+		<p>
+			Número de Páginas: <input type="number" th:field="*{numeroPaginas}" />
+		</p>
+		<p>
+			Preço: <input type="number" th:field="*{preco}" />
+		</p>
+		<p>
+			<input type="submit" value="Salvar" /> <input type="reset"
+				value="Limpar" />
+		</p>
+	</form>
+	<br />
+	<a href="/livros/">Listar Livros</a>
+	<br />
+	<br />
+</body>
+<footer>
+	<th:block th:include="fragments/rodape :: rodape"></th:block>
+</footer>
+</html>

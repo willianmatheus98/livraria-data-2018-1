@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Sistema de Livraria</title>
+<link rel="stylesheet" type="text/css" href="/styles/menu.css">
+<link rel="stylesheet" type="text/css" href="/styles/rodape.css">
+</head>
+<body>
+	<th:block th:include="fragments/apresentacao :: presentation"></th:block>
+	<th:block th:include="fragments/menu :: menu"></th:block>
+
+	<h3>Resultado</h3>
+
+	<p th:text="Livro" />
+	<p th:text="'ID: ' + ${livro.livroID}" />
+	<p th:text="'Título: ' + ${livro.titulo}" />
+	<p th:text="'Data de Publição: ' + ${#temporals.format(livro.dataPublicacao, 'dd/MM/yyyy')}" />
+	<p th:text="'Número de Páginas: ' + ${livro.numeroPaginas}" />
+	<p th:text="'Preço: ' + ${livro.preco}" />
+	<br />
+	<a href="/livros/">Listar Livros</a>
+	<br />
+	<br />
+</body>
+<footer>
+	<th:block th:include="fragments/rodape :: rodape"></th:block>
+</footer>
+</html>
