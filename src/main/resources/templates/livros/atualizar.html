@@ -1,44 +1,111 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-	<title>Sistema de Livraria</title>
-	<link rel="stylesheet" type="text/css" href="/styles/menu.css">
-	<link rel="stylesheet" type="text/css" href="/styles/rodape.css">
-</head>
-<body>
-	<th:block th:include="fragments/apresentacao :: presentation"></th:block>
-	<th:block th:include="fragments/menu :: menu"></th:block>
 
-	<h3>Atualizar Livro</h3>
-	<form action="#" th:action="@{/livros/save/}+${livro.livroID}"
-		th:object="${livro}" method="post">
-		<p>
-			ID: <input type="number" disabled="disabled" th:field="*{livroID}" />
-		</p>
-		<p>
-			Título: <input type="text" th:field="*{titulo}" />
-		</p>
-		<p>
-			Data de Publicação: <input type="date" pattern="dd/MM/yyyy"
-				th:field="*{dataPublicacao}" />
-		</p>
-		<p>
-			Número de Páginas: <input type="number" th:field="*{numeroPaginas}" />
-		</p>
-		<p>
-			Preço: <input type="number" th:field="*{preco}" />
-		</p>
-		<p>
-			<input type="submit" value="Salvar" /> <input type="reset"
-				value="Limpar" />
-		</p>
-	</form>
-	<br />
-	<a href="/livros/">Listar Livros</a>
-	<br />
-	<br />
+<head>
+    <title>Sistema de Livraria</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+</head>
+<style>
+    td:first-child,
+    th:first-child {
+        padding: 20px !important;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 1;
+        z-index: 9999;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-bottom: solid #333;
+    }
+
+    li a:hover:not ( .active) {
+        border-bottom: solid #fafafa;
+        color: white;
+    }
+
+    .corpo {
+        margin-top: 150px;
+    }
+</style>
+</head>
+
+<body>
+    <th:block th:include="fragments/apresentacao :: presentation"></th:block>
+    <th:block th:include="fragments/menu :: menu"></th:block>
+    <div class="container corpo">
+        <h3>Atualizar Livro</h3>
+        <form action="#" th:action="@{/livros/save/}+${livro.livroID}" th:object="${livro}" method="post">
+            <div class="row">
+                <div class="column">
+                    <p>
+                        ID: <input type="number" disabled="disabled" th:field="*{livroID}" />
+                    </p>
+                </div>
+                <div class="column">
+                    <p>
+                        Título: <input type="text" th:field="*{titulo}" />
+                    </p>
+                </div>
+                <div class="column">
+                    <p>
+                        Data de Publicação: <input type="date" pattern="dd/MM/yyyy" th:field="*{dataPublicacao}" />
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>
+                        Número de Páginas: <input type="number" th:field="*{numeroPaginas}" />
+                    </p>
+                </div>
+                <div class="column">
+                    <p>
+                        Preço: <input type="number" th:field="*{preco}" />
+                    </p>
+                </div>
+            </div>
+            <p>
+                <input type="submit" value="Salvar" /> <input class="button button-outline" type="reset" value="Limpar" />
+            </p>
+
+        </form>
+
+        <br />
+        <a href="/livros/">Listar Livros</a>
+        <br />
+    </div>
+    <br />
 </body>
-<footer>
-	<th:block th:include="fragments/rodape :: rodape"></th:block>
-</footer>
+
 </html>

@@ -1,97 +1,94 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-	<title>Sistema de Livraria</title>
-	<!-- <link rel="stylesheet" type="text/css" href="/styles/menu.css">
+    <title>Sistema de Livraria</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/styles/menu.css">
 	<link rel="stylesheet" type="text/css" href="/styles/rodape.css">-->
-	<!-- Latest compiled and minified CSS -->
-	
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
 
-<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 
 
-<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
-	
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 </head>
 <style>
-td:first-child, th:first-child {
-padding: 20px !important;
-}
+    td:first-child,
+    th:first-child {
+        padding: 20px !important;
+    }
 
-body {margin:0;}
+    body {
+        margin: 0;
+    }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    opacity:1;
-    z-index: 9999;
-}
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 1;
+        z-index: 9999;
+    }
 
-li {
-    float: left;
-}
+    li {
+        float: left;
+    }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    
-}
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-bottom: solid #333;
+    }
 
-li a:hover:not(.active) {
-    background-color: #111;
-}
+    li a:hover:not (.active) {
+        border-bottom: solid #fafafa;
+        color: white;
+    }
 
-.corpo{
-	margin-top: 150px;
-}
-
+    .corpo {
+        margin-top: 150px;
+    }
 </style>
+
 <body>
 
-	<th:block th:include="fragments/menu :: menu"></th:block>
-	<div class="container corpo">
-	<h3>Livros</h3>
-	<table >
-		<tr>
-			<th>ID</th>
-			<th>Título</th>
-			<th>Data de Publicação</th>
-			<th>Número de Páginas</th>
-			<th>Preço</th>
-			<th> </th>
-		</tr>
-		<tr th:each="livro : ${livros}">
-			<td th:text="${livro.livroID}"></td>
-			<td th:text="${livro.titulo}"></td>
-			<td
-				th:text="${#temporals.format(livro.dataPublicacao, 'dd/MM/yyyy')}"></td>
-			<td th:text="${livro.numeroPaginas}"></td>
-			<td th:text="${livro.preco}"></td>
-			<td>
-				<a class="button button-outline" th:href="@{/livros/atualizar/}+${livro.livroID}">Atualizar</a>
-			</td>
-		</tr>
-	</table>
-	<br />
-	<a class="button" href="/livros/inserir">Inserir Livro</a>
-	<br />
-	<br />
-	</div>
+    <th:block th:include="fragments/menu :: menu"></th:block>
+    <div class="container corpo">
+        <h3>Livros</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Data de Publicação</th>
+                <th>Número de Páginas</th>
+                <th>Preço</th>
+                <th></th>
+            </tr>
+            <tr th:each="livro : ${livros}">
+                <td th:text="${livro.livroID}"></td>
+                <td th:text="${livro.titulo}"></td>
+                <td th:text="${#temporals.format(livro.dataPublicacao, 'dd/MM/yyyy')}"></td>
+                <td th:text="${livro.numeroPaginas}"></td>
+                <td th:text="${livro.preco}"></td>
+                <td><a class="button button-outline" th:href="@{/livros/atualizar/}+${livro.livroID}">Atualizar</a></td>
+            </tr>
+        </table>
+        <br /> <a class="button" href="/livros/inserir">Inserir Livro</a> <br />
+        <br />
+    </div>
 </body>
-<footer>
-<div class="container">
-	<th:block th:include="fragments/rodape :: rodape"></th:block>
-	</div>
-</footer>
+
 </html>

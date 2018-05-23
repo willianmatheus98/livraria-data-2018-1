@@ -1,23 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Sistema de Livraria</title>
 
-<th:block th:include="fragments/cabecalho :: head"></th:block>
+<head>
+    <title>Sistema de Livraria</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+    <th:block th:include="fragments/cabecalho :: head"></th:block>
 
 </head>
+<style>
+    td:first-child,
+    th:first-child {
+        padding: 20px !important;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 1;
+        z-index: 9999;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        border-bottom: solid #333;
+    }
+
+    li a:hover:not (.active) {
+        border-bottom: solid #fafafa;
+        color: white;
+    }
+
+    .corpo {
+        margin-top: 150px;
+    }
+</style>
+
 <body>
-	<th:block th:include="fragments/apresentacao :: presentation"></th:block>
-	<th:block th:include="fragments/menu :: menu"></th:block>
-	<div>
-	<br />
-		<p>Desta maneira, a execução dos pontos do programa desafia a capacidade de equalização do sistema de </p>
-		<p>formação de quadros que corresponde às necessidades. Desta maneira, a execução dos pontos do programa desafia a </p>
-		<p>capacidade de equalização do sistema de formação de quadros que corresponde às necessidades.</p>
-	<br />
-	</div>
+    <th:block th:include="fragments/apresentacao :: presentation"></th:block>
+    <th:block th:include="fragments/menu :: menu"></th:block>
+    <div class="container corpo">
+        <div>
+            <br />
+            <p>Desta maneira, a execução dos pontos do programa desafia a capacidade de equalização do sistema de </p>
+            <p>formação de quadros que corresponde às necessidades. Desta maneira, a execução dos pontos do programa desafia a </p>
+            <p>capacidade de equalização do sistema de formação de quadros que corresponde às necessidades.</p>
+            <br />
+        </div>
 </body>
-<footer>
-	<th:block th:include="fragments/rodape :: rodape"></th:block>
-</footer>
+
 </html>
